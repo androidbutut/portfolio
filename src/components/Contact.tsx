@@ -66,6 +66,9 @@ export default function Contact() {
       <div className="mt-20 text-center text-xs text-white/30">
         <p>© {new Date().getFullYear()} {profile.name}. Portfolio 3D Cybernetic Route.</p>
         <p className="mt-1">Built with React · Three.js · R3F</p>
+        <p className="mt-2 max-w-3xl mx-auto leading-relaxed">
+          Model 3D: <a className="underline hover:text-white/60" href="https://sketchfab.com/3d-models/indonesian-bus-ecoline-fda12812ab1147b79c1a6c7aa3adc5f8" target="_blank" rel="noopener noreferrer">Indonesian Bus Ecoline</a> by <a className="underline hover:text-white/60" href="https://sketchfab.com/agungkuncoro13021986" target="_blank" rel="noopener noreferrer">agungkuncoro13021986</a> and <a className="underline hover:text-white/60" href="https://sketchfab.com/3d-models/toyota-kijang-innova-zenix-2023-highpoly-c8e1bbc9292b4e198dba839c32f02fa9" target="_blank" rel="noopener noreferrer">Toyota Kijang Innova Zenix 2023</a> by <a className="underline hover:text-white/60" href="https://sketchfab.com/3dshowroom" target="_blank" rel="noopener noreferrer">3dShowroom</a>, CC BY 4.0. Mercedes-Benz E250 Estate by KOElkast1007, Sketchfab Standard License.
+        </p>
       </div>
     </section>
   )

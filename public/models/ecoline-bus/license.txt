@@ -1,0 +1,11 @@
+Model Information:
+* title:	indonesian bus Ecoline
+* source:	https://sketchfab.com/3d-models/indonesian-bus-ecoline-fda12812ab1147b79c1a6c7aa3adc5f8
+* author:	agungkuncoro13021986 (https://sketchfab.com/agungkuncoro13021986)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "indonesian bus Ecoline" (https://sketchfab.com/3d-models/indonesian-bus-ecoline-fda12812ab1147b79c1a6c7aa3adc5f8) by agungkuncoro13021986 (https://sketchfab.com/agungkuncoro13021986) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

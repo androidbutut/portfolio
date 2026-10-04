@@ -1,8 +1,15 @@
-import { useRef, useState, useMemo } from 'react'
+import { Suspense, useRef, useState, useMemo } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows } from '@react-three/drei'
 import * as THREE from 'three'
 import { vehicleCategories } from '../data/cv'
+import VehicleModel from './VehicleModel'
+
+const vehicleModels: Record<string, { src: string; targetLength: number }> = {
+  city: { src: '/models/innova-zenix/scene.gltf', targetLength: 3.8 },
+  executive: { src: '/models/mercedes-e250/scene.gltf', targetLength: 3.8 },
+  heavy: { src: '/models/ecoline-bus/scene.gltf', targetLength: 5.2 },
+}
 
 function CarModel({
   type,
@@ -31,6 +38,7 @@ function CarModel({
     }
   })
 
+  const model = vehicleModels[type]
   const isHeavy = type === 'heavy' || type === 'commercial'
   const bodyW = isHeavy ? 2.4 : 1.7
   const bodyL = isHeavy ? 5.2 : 3.8
@@ -48,6 +56,10 @@ function CarModel({
       onPointerOver={() => (document.body.style.cursor = 'pointer')}
       onPointerOut={() => (document.body.style.cursor = 'auto')}
     >
+      {model ? (
+        <VehicleModel src={model.src} targetLength={model.targetLength} />
+      ) : (
+        <>
       <mesh castShadow position={[0, bodyH / 2 + 0.15, 0]}>
         <boxGeometry args={[bodyW, bodyH, bodyL]} />
         <meshStandardMaterial
@@ -89,15 +101,6 @@ function CarModel({
         />
       </mesh>
 
-      <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[bodyW + 0.4, bodyL + 0.5]} />
-        <meshBasicMaterial
-          color={selected ? color : '#00F0FF'}
-          transparent
-          opacity={selected ? 0.45 : 0.15}
-        />
-      </mesh>
-
       {(isHeavy
         ? [
             [-bodyW * 0.4, 0.28, bodyL * 0.32],
@@ -119,6 +122,16 @@ function CarModel({
           <meshStandardMaterial color="#111" metalness={0.5} roughness={0.5} />
         </mesh>
       ))}
+        </>
+      )}
+      <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry args={[bodyW + 0.4, bodyL + 0.5]} />
+        <meshBasicMaterial
+          color={selected ? color : '#00F0FF'}
+          transparent
+          opacity={selected ? 0.45 : 0.15}
+        />
+      </mesh>
     </group>
   )
 }
@@ -209,7 +222,9 @@ export default function VehicleCarousel3D() {
         camera={{ position: [0, 5, 11], fov: 42 }}
         gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping }}
       >
-        <CarouselScene selectedIdx={selected} onSelect={setSelected} />
+        <Suspense fallback={null}>
+          <CarouselScene selectedIdx={selected} onSelect={setSelected} />
+        </Suspense>
       </Canvas>
 
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#0B0F19]/95 to-transparent pointer-events-none">

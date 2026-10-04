@@ -1,0 +1,8 @@
+Model Information:
+* title:	Mercedes-Benz E250 Estate
+* source:	https://sketchfab.com/3d-models/mercedes-benz-e250-estate-3daf171fe1b54eac8889f6e2a6f1601b
+* author:	KOElkast1007 (https://sketchfab.com/koelkastasbers)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
