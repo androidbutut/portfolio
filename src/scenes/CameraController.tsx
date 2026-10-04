@@ -10,6 +10,8 @@ const WAYPOINTS = [
   { pos: [1.5, 2.8, 2] as [number, number, number], look: [0, 0.2, -6] },
   { pos: [-1.8, 3.5, 0] as [number, number, number], look: [0, 0.3, -8] },
   { pos: [2, 3.0, -2] as [number, number, number], look: [0, 0.2, -10] },
+  { pos: [0.2, 3.7, -4] as [number, number, number], look: [0, 0.8, 2] },
+  { pos: [2.2, 3.4, -4.5] as [number, number, number], look: [0, 0.8, 2] },
   { pos: [0, 4.0, 8] as [number, number, number], look: [0, 0.4, -1] },
 ]
 

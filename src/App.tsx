@@ -41,13 +41,13 @@ export default function App() {
           wp = 2 + Math.min(3, Math.floor(Math.max(0, -(document.getElementById('experience')?.getBoundingClientRect().top ?? 0)) / 400))
           break
         case 'skills':
-          wp = 4
+          wp = 6
           break
         case 'vehicles':
-          wp = 5
+          wp = 7
           break
         case 'contact':
-          wp = 6
+          wp = 8
           break
         default:
           wp = 0
