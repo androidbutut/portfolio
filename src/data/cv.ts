@@ -25,6 +25,14 @@ export interface VehicleCategory {
   description: string
 }
 
+export interface Marker {
+  name: string
+  lat: number
+  lng: number
+  size?: number
+  pulse?: boolean
+}
+
 export const profile = {
   name: 'Endang Saepudin',
   birth: 'Bandung, 12 September 1983',
@@ -35,6 +43,12 @@ export const profile = {
   title: 'Professional Driver & Fleet Specialist',
   tagline: 'Navigating Every Road with Precision & Trust',
 }
+
+export const visitedCityMarkers: Marker[] = [
+  { name: 'Jakarta', lat: -6.2088, lng: 106.8456 },
+  { name: 'Bandung', lat: -6.9175, lng: 107.6191 },
+  { name: 'Tasikmalaya', lat: -7.3274, lng: 108.2207 },
+]
 
 export const education = [
   { school: 'SDN Pakar 1 Bandung', years: '1990–1996' },
