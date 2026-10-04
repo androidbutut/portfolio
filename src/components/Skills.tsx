@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion'
+import { Compass, Laptop, Wrench, type LucideIcon } from 'lucide-react'
 import { skills } from '../data/cv'
+
+const skillIcons: Record<string, LucideIcon> = {
+  compass: Compass,
+  wrench: Wrench,
+  laptop: Laptop,
+}
 
 export default function Skills() {
   return (
@@ -19,7 +26,9 @@ export default function Skills() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {skills.map((skill, i) => (
+          {skills.map((skill, i) => {
+            const SkillIcon = skillIcons[skill.icon] ?? Compass
+            return (
             <motion.div
               key={skill.id}
               initial={{ opacity: 0, y: 30 }}
@@ -28,15 +37,16 @@ export default function Skills() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glass rounded-3xl p-7 group hover:border-[#00F0FF]/40 transition-smooth"
             >
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform origin-left">
-                {skill.icon}
+              <div className="mb-4 text-[#00F0FF] group-hover:scale-110 transition-transform origin-left">
+                <SkillIcon className="w-8 h-8" />
               </div>
               <h3 className="text-lg font-semibold mb-2 group-hover:text-[#00F0FF] transition-colors">
                 {skill.title}
               </h3>
               <p className="text-sm text-white/60 leading-relaxed">{skill.description}</p>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

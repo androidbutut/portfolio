@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
+import { BusFront, Car, CarFront, Truck } from 'lucide-react'
 import { vehicleCategories } from '../data/cv'
 import VehicleCarousel3D from '../scenes/VehicleCarousel'
 
-const categoryIcons: Record<string, string> = {
-  city: '🚗',
-  executive: '🚘',
-  commercial: '🚛',
-  heavy: '🚌',
+const categoryIcons = {
+  city: Car,
+  executive: CarFront,
+  commercial: Truck,
+  heavy: BusFront,
 }
 
 export default function Vehicles() {
@@ -40,7 +41,9 @@ export default function Vehicles() {
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-5">
-          {vehicleCategories.map((cat, i) => (
+          {vehicleCategories.map((cat, i) => {
+            const CategoryIcon = categoryIcons[cat.id as keyof typeof categoryIcons] ?? Car
+            return (
             <motion.div
               key={cat.id}
               initial={{ opacity: 0, y: 24 }}
@@ -50,7 +53,7 @@ export default function Vehicles() {
               className="vehicle-card glass rounded-2xl p-5 transition-smooth"
             >
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{categoryIcons[cat.id] || '🚙'}</span>
+                <CategoryIcon className="w-6 h-6 text-[#00F0FF]" />
                 <div>
                   <h3 className="font-semibold">{cat.name}</h3>
                   <p className="text-[11px] text-white/40">{cat.vehicles.length} unit</p>
@@ -68,7 +71,8 @@ export default function Vehicles() {
                 ))}
               </div>
             </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

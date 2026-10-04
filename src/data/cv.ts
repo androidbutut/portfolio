@@ -47,19 +47,19 @@ export const skills: Skill[] = [
     id: 'driving',
     title: 'Professional Driving & Navigation',
     description: 'Pengemudi profesional kendaraan matic & manual. Menguasai rute bebas hambatan/protokol dalam & luar kota dengan keahlian navigasi tinggi.',
-    icon: '🧭',
+    icon: 'compass',
   },
   {
     id: 'fleet',
     title: 'Fleet & Vehicle Knowledge',
     description: 'Pemahaman mendasar pemeliharaan & perbaikan mesin armada kendaraan ringan hingga berat.',
-    icon: '🔧',
+    icon: 'wrench',
   },
   {
     id: 'tech',
     title: 'Tech & Computer Skills',
     description: 'Pengoperasian komputer, gadget, dan sistem digital modern.',
-    icon: '💻',
+    icon: 'laptop',
   },
 ]
 

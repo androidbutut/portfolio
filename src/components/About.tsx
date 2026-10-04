@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Cake, GraduationCap, MapPin, Moon, Phone } from 'lucide-react'
 import { profile, education } from '../data/cv'
 
 export default function About() {
@@ -36,21 +37,21 @@ export default function About() {
 
             <ul className="space-y-4 text-sm text-white/80">
               <li className="flex gap-3">
-                <span className="text-[#FFB800] w-5">📍</span>
+                <MapPin className="w-4 h-4 shrink-0 text-[#FFB800]" />
                 <span>{profile.location}</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-[#FFB800] w-5">🎂</span>
+                <Cake className="w-4 h-4 shrink-0 text-[#FFB800]" />
                 <span>{profile.birth}</span>
               </li>
               <li className="flex gap-3">
-                <span className="text-[#FFB800] w-5">📱</span>
+                <Phone className="w-4 h-4 shrink-0 text-[#FFB800]" />
                 <a href={`tel:${profile.phone}`} className="hover:text-[#00F0FF] transition-colors">
                   {profile.phone}
                 </a>
               </li>
               <li className="flex gap-3">
-                <span className="text-[#FFB800] w-5">🕌</span>
+                <Moon className="w-4 h-4 shrink-0 text-[#FFB800]" />
                 <span>{profile.religion}</span>
               </li>
             </ul>
@@ -64,7 +65,7 @@ export default function About() {
             className="glass rounded-3xl p-8"
           >
             <h3 className="text-lg font-semibold mb-5 flex items-center gap-2">
-              <span className="text-[#00F0FF]">🎓</span> Pendidikan
+              <GraduationCap className="w-5 h-5 text-[#00F0FF]" /> Pendidikan
             </h3>
             <div className="space-y-5">
               {education.map((edu, i) => (

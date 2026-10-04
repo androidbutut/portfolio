@@ -9,12 +9,6 @@
   --glass: rgba(11, 15, 25, 0.65);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html, body, #root {
   width: 100%;
   height: 100%;
@@ -104,13 +98,15 @@ html, body, #root {
   box-shadow: 0 6px 32px rgba(37, 211, 102, 0.65);
 }
 
-.section-pad {
-  padding: 100px 24px !important;
-}
-
-@media (min-width: 768px) {
+@layer components {
   .section-pad {
-    padding: 140px 48px !important;
+    padding: 100px 24px;
+  }
+
+  @media (min-width: 768px) {
+    .section-pad {
+      padding: 140px 48px;
+    }
   }
 }
 

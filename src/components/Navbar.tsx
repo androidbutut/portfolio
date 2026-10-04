@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 import { profile } from '../data/cv'
 
 const links = [
@@ -82,11 +83,7 @@ export default function Navbar() {
           className="md:hidden w-10 h-10 flex items-center justify-center rounded-lg glass"
           aria-label="Menu"
         >
-          <div className="space-y-1.5">
-            <span className={`block w-5 h-0.5 bg-[#00F0FF] transition-all ${open ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-[#00F0FF] transition-all ${open ? 'opacity-0' : ''}`} />
-            <span className={`block w-5 h-0.5 bg-[#00F0FF] transition-all ${open ? '-rotate-45 -translate-y-2' : ''}`} />
-          </div>
+          {open ? <X className="w-5 h-5 text-[#00F0FF]" /> : <Menu className="w-5 h-5 text-[#00F0FF]" />}
         </button>
       </div>
 
