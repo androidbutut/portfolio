@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { MapPin, MessageCircle, Phone } from 'lucide-react'
 import { profile } from '../data/cv'
+import MagicCard from './MagicCard'
 
 export default function Contact() {
   return (
@@ -21,7 +22,7 @@ export default function Contact() {
             Hubungi langsung via WhatsApp.
           </p>
 
-          <div className="glass rounded-3xl p-8 md:p-10 inline-block w-full max-w-md">
+          <MagicCard className="glass rounded-3xl p-8 md:p-10 inline-block w-full max-w-md">
             <div className="space-y-5 text-left">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#00F0FF]/15 flex items-center justify-center text-[#00F0FF]">
@@ -59,7 +60,7 @@ export default function Contact() {
               <MessageCircle className="w-5 h-5" />
               Chat via WhatsApp
             </a>
-          </div>
+          </MagicCard>
         </motion.div>
       </div>
 

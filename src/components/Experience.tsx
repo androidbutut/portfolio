@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { experiences, categories } from '../data/cv'
 import type { Experience as ExpType } from '../data/cv'
+import MagicCard from './MagicCard'
 
 export default function Experience() {
   const [filter, setFilter] = useState('all')
@@ -84,42 +85,44 @@ export default function Experience() {
                         isLeft ? 'md:pr-8 md:text-right' : 'md:pl-8'
                       }`}
                     >
-                      <button
-                        onClick={() => {
-                          setSelected(selected?.id === exp.id ? null : exp)
-                          window.dispatchEvent(new Event('portfolio-click'))
-                        }}
-                        className="w-full text-left glass rounded-2xl p-5 hover:border-[#00F0FF]/40 transition-smooth group"
-                      >
-                        <div className="flex items-center gap-2 mb-1.5 justify-between">
-                          <span
-                            className="text-xs font-semibold tracking-wider uppercase"
-                            style={{ color: exp.color }}
-                          >
-                            {exp.period}
-                          </span>
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/50 capitalize">
-                            {exp.category}
-                          </span>
-                        </div>
-                        <h3 className="font-semibold text-white group-hover:text-[#00F0FF] transition-colors">
-                          {exp.role}
-                        </h3>
-                        <p className="text-sm text-white/60 mt-0.5">{exp.company}</p>
-                        <div className="flex flex-wrap gap-1.5 mt-3">
-                          {exp.vehicles.slice(0, 3).map((v) => (
+                      <MagicCard className="glass w-full rounded-2xl">
+                        <button
+                          onClick={() => {
+                            setSelected(selected?.id === exp.id ? null : exp)
+                            window.dispatchEvent(new Event('portfolio-click'))
+                          }}
+                          className="w-full rounded-[inherit] p-5 text-left transition-smooth group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00F0FF]"
+                        >
+                          <div className="flex items-center gap-2 mb-1.5 justify-between">
                             <span
-                              key={v}
-                              className="text-[11px] px-2 py-0.5 rounded-md bg-[#00F0FF]/10 text-[#00F0FF]/90"
+                              className="text-xs font-semibold tracking-wider uppercase"
+                              style={{ color: exp.color }}
                             >
-                              {v}
+                              {exp.period}
                             </span>
-                          ))}
-                          {exp.vehicles.length > 3 && (
-                            <span className="text-[11px] text-white/40">+{exp.vehicles.length - 3}</span>
-                          )}
-                        </div>
-                      </button>
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/50 capitalize">
+                              {exp.category}
+                            </span>
+                          </div>
+                          <h3 className="font-semibold text-white group-hover:text-[#00F0FF] transition-colors">
+                            {exp.role}
+                          </h3>
+                          <p className="text-sm text-white/60 mt-0.5">{exp.company}</p>
+                          <div className="flex flex-wrap gap-1.5 mt-3">
+                            {exp.vehicles.slice(0, 3).map((v) => (
+                              <span
+                                key={v}
+                                className="text-[11px] px-2 py-0.5 rounded-md bg-[#00F0FF]/10 text-[#00F0FF]/90"
+                              >
+                                {v}
+                              </span>
+                            ))}
+                            {exp.vehicles.length > 3 && (
+                              <span className="text-[11px] text-white/40">+{exp.vehicles.length - 3}</span>
+                            )}
+                          </div>
+                        </button>
+                      </MagicCard>
 
                       <AnimatePresence>
                         {selected?.id === exp.id && (
@@ -129,7 +132,7 @@ export default function Experience() {
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="mt-3 glass-strong rounded-xl p-4 text-sm text-white/70 leading-relaxed">
+                            <MagicCard className="mt-3 glass-strong rounded-xl p-4 text-sm text-white/70 leading-relaxed">
                               {exp.description}
                               <div className="mt-3 pt-3 border-t border-white/10">
                                 <p className="text-xs text-white/40 mb-1.5">Armada yang dikuasai:</p>
@@ -144,7 +147,7 @@ export default function Experience() {
                                   ))}
                                 </div>
                               </div>
-                            </div>
+                            </MagicCard>
                           </motion.div>
                         )}
                       </AnimatePresence>

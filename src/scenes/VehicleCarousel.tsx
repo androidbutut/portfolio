@@ -4,6 +4,7 @@ import { OrbitControls, Environment, ContactShadows } from '@react-three/drei'
 import * as THREE from 'three'
 import { vehicleCategories } from '../data/cv'
 import VehicleModel from './VehicleModel'
+import MagicCard from '../components/MagicCard'
 
 const vehicleModels: Record<string, { src: string; targetLength: number }> = {
   city: { src: '/models/innova-zenix/scene.gltf', targetLength: 3.8 },
@@ -215,7 +216,8 @@ export default function VehicleCarousel3D() {
   const cat = selected >= 0 ? vehicleCategories[selected] : null
 
   return (
-    <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden glass">
+    <MagicCard className="w-full rounded-3xl p-0">
+      <div className="relative w-full h-[380px] md:h-[460px] overflow-hidden">
       <Canvas
         shadows
         dpr={[1, 1.5]}
@@ -252,6 +254,7 @@ export default function VehicleCarousel3D() {
           </p>
         )}
       </div>
-    </div>
+      </div>
+    </MagicCard>
   )
 }

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Compass, Laptop, Wrench, type LucideIcon } from 'lucide-react'
 import { skills } from '../data/cv'
+import MagicCard from './MagicCard'
 
 const skillIcons: Record<string, LucideIcon> = {
   compass: Compass,
@@ -29,22 +30,24 @@ export default function Skills() {
           {skills.map((skill, i) => {
             const SkillIcon = skillIcons[skill.icon] ?? Compass
             return (
-            <motion.div
-              key={skill.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass rounded-3xl p-7 group hover:border-[#00F0FF]/40 transition-smooth"
-            >
-              <div className="mb-4 text-[#00F0FF] group-hover:scale-110 transition-transform origin-left">
-                <SkillIcon className="w-8 h-8" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-[#00F0FF] transition-colors">
-                {skill.title}
-              </h3>
-              <p className="text-sm text-white/60 leading-relaxed">{skill.description}</p>
-            </motion.div>
+              <motion.div
+                key={skill.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="h-full"
+              >
+                <MagicCard className="glass h-full rounded-3xl p-7 group hover:border-[#00F0FF]/40 transition-smooth">
+                  <div className="mb-4 text-[#00F0FF] group-hover:scale-110 transition-transform origin-left">
+                    <SkillIcon className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-[#00F0FF] transition-colors">
+                    {skill.title}
+                  </h3>
+                  <p className="text-sm text-white/60 leading-relaxed">{skill.description}</p>
+                </MagicCard>
+              </motion.div>
             )
           })}
         </div>

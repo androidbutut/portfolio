@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Cake, GraduationCap, MapPin, Moon, Phone } from 'lucide-react'
 import { profile, education } from '../data/cv'
+import MagicCard from './MagicCard'
 
 export default function About() {
   return (
@@ -23,8 +24,8 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="glass rounded-3xl p-8"
           >
+            <MagicCard className="glass rounded-3xl p-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00F0FF] to-[#FFB800] flex items-center justify-center text-2xl font-bold text-[#0B0F19]">
                 ES
@@ -55,6 +56,7 @@ export default function About() {
                 <span>{profile.religion}</span>
               </li>
             </ul>
+            </MagicCard>
           </motion.div>
 
           <motion.div
@@ -62,8 +64,8 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass rounded-3xl p-8"
           >
+            <MagicCard className="glass rounded-3xl p-8">
             <h3 className="text-lg font-semibold mb-5 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-[#00F0FF]" /> Pendidikan
             </h3>
@@ -79,6 +81,7 @@ export default function About() {
             <p className="mt-6 text-xs text-white/40 leading-relaxed">
               Latar belakang otomotif dari SMK ICB Bandung menjadi fondasi kuat dalam memahami mesin dan kendaraan sejak dini.
             </p>
+            </MagicCard>
           </motion.div>
         </div>
       </div>

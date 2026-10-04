@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowDown, MessageCircle } from 'lucide-react'
 import { profile } from '../data/cv'
+import KineticText from './KineticText'
+import MagicCard from './MagicCard'
 
 export default function Hero() {
   return (
@@ -14,9 +16,11 @@ export default function Hero() {
           <p className="text-[#00F0FF] text-sm md:text-base tracking-[0.25em] uppercase mb-4 neon-text">
             Professional Driver Portfolio
           </p>
-          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4">
-            <span className="text-white">{profile.name}</span>
-          </h1>
+          <KineticText
+            as="h1"
+            text={profile.name}
+            className="justify-center text-3xl sm:text-5xl md:text-7xl leading-tight mb-4 text-white"
+          />
           <p className="text-lg md:text-xl text-[#FFB800] font-medium mb-3 gold-text">
             {profile.title}
           </p>
@@ -56,10 +60,10 @@ export default function Hero() {
             { label: 'Kota Operasi', value: '3+' },
             { label: 'Klien Premium', value: '\u221E' },
           ].map((stat) => (
-            <div key={stat.label} className="glass rounded-2xl px-4 py-5">
+            <MagicCard key={stat.label} className="glass rounded-2xl px-4 py-5">
               <div className="text-2xl md:text-3xl font-bold text-[#00F0FF] neon-text">{stat.value}</div>
               <div className="text-xs text-white/50 mt-1">{stat.label}</div>
-            </div>
+            </MagicCard>
           ))}
         </motion.div>
       </div>
