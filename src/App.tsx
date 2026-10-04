@@ -19,15 +19,14 @@ export default function App() {
 
   useEffect(() => {
     const onScroll = () => {
-      const scrollY = window.scrollY + window.innerHeight * 0.35
+      const activationLine = window.innerHeight * 0.35
       let current = 'hero'
       let wp = 0
 
-      for (let i = SECTION_IDS.length - 1; i >= 0; i--) {
-        const el = document.getElementById(SECTION_IDS[i])
-        if (el && el.offsetTop <= scrollY) {
-          current = SECTION_IDS[i]
-          break
+      for (const sectionId of SECTION_IDS) {
+        const section = document.getElementById(sectionId)
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          current = sectionId
         }
       }
 
@@ -39,7 +38,7 @@ export default function App() {
           wp = 1
           break
         case 'experience':
-          wp = 2 + Math.min(3, Math.floor((window.scrollY - (document.getElementById('experience')?.offsetTop || 0)) / 400))
+          wp = 2 + Math.min(3, Math.floor(Math.max(0, -(document.getElementById('experience')?.getBoundingClientRect().top ?? 0)) / 400))
           break
         case 'skills':
           wp = 4
@@ -59,8 +58,14 @@ export default function App() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
+    document.addEventListener('scroll', onScroll, { capture: true, passive: true })
+    window.addEventListener('resize', onScroll)
     onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      document.removeEventListener('scroll', onScroll, true)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   return (
@@ -77,8 +82,10 @@ export default function App() {
         <Vehicles />
         <Contact />
       </div>
-      <ScrollToTop />
-      <WhatsAppFloat />
+      <div className="floating-actions">
+        <ScrollToTop />
+        <WhatsAppFloat />
+      </div>
     </div>
   )
 }

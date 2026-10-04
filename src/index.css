@@ -148,10 +148,6 @@ html, body, #root {
 }
 
 .wa-float {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 50;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -168,10 +164,6 @@ html, body, #root {
 }
 
 .scroll-top {
-  position: fixed;
-  right: 28px;
-  bottom: 104px;
-  z-index: 50;
   display: grid;
   width: 48px;
   height: 48px;
@@ -180,6 +172,17 @@ html, body, #root {
   color: var(--neon-blue);
   cursor: pointer;
   transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.floating-actions {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .scroll-top:hover {

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { profile } from '../data/cv'
+import { getPageScrollTop } from '../utils/scroll'
 
 const links = [
   { id: 'hero', label: 'Home' },
@@ -18,21 +19,30 @@ export default function Navbar() {
   const [active, setActive] = useState('hero')
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40)
-      const sections = links.map((l) => document.getElementById(l.id))
-      const scrollPos = window.scrollY + 120
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sec = sections[i]
-        if (sec && sec.offsetTop <= scrollPos) {
-          setActive(links[i].id)
-          break
+    const updateFromViewport = () => {
+      setScrolled(getPageScrollTop() > 40)
+      const activationLine = window.innerHeight * 0.35
+      let currentSection = 'hero'
+
+      for (const link of links) {
+        const section = document.getElementById(link.id)
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          currentSection = link.id
         }
       }
+
+      setActive(currentSection)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+
+    window.addEventListener('scroll', updateFromViewport, { passive: true })
+    document.addEventListener('scroll', updateFromViewport, { capture: true, passive: true })
+    window.addEventListener('resize', updateFromViewport)
+    updateFromViewport()
+    return () => {
+      window.removeEventListener('scroll', updateFromViewport)
+      document.removeEventListener('scroll', updateFromViewport, true)
+      window.removeEventListener('resize', updateFromViewport)
+    }
   }, [])
 
   const scrollTo = (id: string) => {
