@@ -44,6 +44,14 @@ html, body, #root {
   border: 1px solid rgba(0, 240, 255, 0.25);
 }
 
+.navbar-scrolled {
+  background: rgba(11, 15, 25, 0.52);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+
 .neon-text {
   text-shadow: 0 0 8px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
 }
