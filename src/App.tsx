@@ -10,6 +10,7 @@ import Contact from './components/Contact'
 import WhatsAppFloat from './components/WhatsAppFloat'
 import AssetLoader from './components/AssetLoader'
 import ScrollToTop from './components/ScrollToTop'
+import InteractiveGridPattern from './components/InteractiveGridPattern'
 
 const SECTION_IDS = ['hero', 'about', 'experience', 'skills', 'vehicles', 'contact']
 
@@ -64,6 +65,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen">
+      <InteractiveGridPattern />
       <MainCanvas activeWaypoint={waypoint} />
       <AssetLoader />
       <div className="hud-layer relative">

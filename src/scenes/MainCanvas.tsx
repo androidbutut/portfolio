@@ -18,11 +18,12 @@ export default function MainCanvas({ activeWaypoint = 0 }: MainCanvasProps) {
         camera={{ position: [0, 4.5, 12], fov: 50, near: 0.1, far: 200 }}
         gl={{
           antialias: true,
+          alpha: true,
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.1,
         }}
         onCreated={({ gl }) => {
-          gl.setClearColor('#0B0F19')
+          gl.setClearColor('#0B0F19', 0)
         }}
       >
         <Suspense fallback={null}>

@@ -3,13 +3,13 @@ import { ArrowDown, MessageCircle } from 'lucide-react'
 import { profile } from '../data/cv'
 import KineticText from './KineticText'
 import MagicCard from './MagicCard'
-import DottedMap from './DottedMap'
+import CityMarkers from './CityMarkers'
 
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center section-pad">
-      <div className="hero-map-layer">
-        <DottedMap />
+      <div className="hero-city-markers">
+        <CityMarkers />
       </div>
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div

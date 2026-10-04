@@ -13,7 +13,7 @@ html, body, #root {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background: var(--cyber-black);
+  background: linear-gradient(135deg, #0B0F19 0%, #101923 48%, #0B0F19 100%);
   color: var(--white);
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -90,40 +90,50 @@ html, body, #root {
 .canvas-container {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
 .canvas-container canvas {
-  pointer-events: auto;
-}
-
-.hero-map-layer {
-  position: absolute;
-  top: 12%;
-  right: -2%;
-  z-index: 1;
-  width: min(92vw, 1040px);
-  height: min(60vh, 500px);
-  opacity: 0.68;
   pointer-events: none;
 }
 
-.dotted-map {
+.interactive-grid-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-city-markers {
+  position: absolute;
+  top: 19%;
+  right: 3%;
+  z-index: 1;
+  width: min(58vw, 620px);
+  height: min(25vh, 200px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.city-markers {
   display: block;
   width: 100%;
   height: 100%;
-  overflow: visible;
 }
 
 @media (max-width: 767px) {
-  .hero-map-layer {
-    top: 14%;
-    right: -20%;
-    width: 128vw;
-    height: 40vh;
-    min-height: 230px;
-    opacity: 0.52;
+  .hero-city-markers {
+    top: 13%;
+    right: -8%;
+    width: 76vw;
+    height: 160px;
+    opacity: 0.8;
   }
 }
 
