@@ -38,7 +38,6 @@ export default function Experience() {
               key={cat.id}
               onClick={() => {
                 setFilter(cat.id)
-                window.dispatchEvent(new Event('portfolio-click'))
               }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-smooth ${
                 filter === cat.id
@@ -89,7 +88,6 @@ export default function Experience() {
                         <button
                           onClick={() => {
                             setSelected(selected?.id === exp.id ? null : exp)
-                            window.dispatchEvent(new Event('portfolio-click'))
                           }}
                           className="w-full rounded-[inherit] p-5 text-left transition-smooth group focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#00F0FF]"
                         >

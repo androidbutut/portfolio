@@ -100,14 +100,13 @@ html, body, #root {
 
 .hero-map-layer {
   position: absolute;
-  top: 13%;
-  right: -4%;
-  z-index: 0;
-  width: min(88vw, 1040px);
-  height: min(54vh, 460px);
-  opacity: 0.34;
+  top: 12%;
+  right: -2%;
+  z-index: 1;
+  width: min(92vw, 1040px);
+  height: min(60vh, 500px);
+  opacity: 0.68;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at 56% 52%, #000 36%, rgba(0, 0, 0, 0.82) 58%, transparent 82%);
 }
 
 .dotted-map {
@@ -119,12 +118,12 @@ html, body, #root {
 
 @media (max-width: 767px) {
   .hero-map-layer {
-    top: 16%;
-    right: -28%;
-    width: 138vw;
-    height: 38vh;
+    top: 14%;
+    right: -20%;
+    width: 128vw;
+    height: 40vh;
     min-height: 230px;
-    opacity: 0.28;
+    opacity: 0.52;
   }
 }
 
@@ -156,6 +155,27 @@ html, body, #root {
 .wa-float:hover {
   transform: scale(1.08);
   box-shadow: 0 6px 32px rgba(37, 211, 102, 0.65);
+}
+
+.scroll-top {
+  position: fixed;
+  right: 28px;
+  bottom: 104px;
+  z-index: 50;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--neon-blue);
+  cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.scroll-top:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: var(--white);
 }
 
 @layer components {

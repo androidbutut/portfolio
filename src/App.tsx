@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import MainCanvas from './scenes/MainCanvas'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -8,16 +8,13 @@ import Skills from './components/Skills'
 import Vehicles from './components/Vehicles'
 import Contact from './components/Contact'
 import WhatsAppFloat from './components/WhatsAppFloat'
-import SoundToggle from './components/SoundToggle'
 import AssetLoader from './components/AssetLoader'
-import { useSound } from './hooks/useSound'
+import ScrollToTop from './components/ScrollToTop'
 
 const SECTION_IDS = ['hero', 'about', 'experience', 'skills', 'vehicles', 'contact']
 
 export default function App() {
   const [waypoint, setWaypoint] = useState(0)
-  const { enabled, toggle, playWhoosh, playClick } = useSound()
-  const lastSection = useRef('hero')
 
   useEffect(() => {
     const onScroll = () => {
@@ -58,22 +55,12 @@ export default function App() {
 
       setWaypoint(wp)
 
-      if (current !== lastSection.current) {
-        playWhoosh()
-        lastSection.current = current
-      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [playWhoosh])
-
-  useEffect(() => {
-    const handler = () => playClick()
-    window.addEventListener('portfolio-click', handler)
-    return () => window.removeEventListener('portfolio-click', handler)
-  }, [playClick])
+  }, [])
 
   return (
     <div className="relative min-h-screen">
@@ -88,7 +75,7 @@ export default function App() {
         <Vehicles />
         <Contact />
       </div>
-      <SoundToggle enabled={enabled} onToggle={toggle} />
+      <ScrollToTop />
       <WhatsAppFloat />
     </div>
   )

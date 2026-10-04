@@ -38,13 +38,13 @@ export default function DottedMap() {
           key={`${point.x}-${point.y}-${index}`}
           cx={point.x}
           cy={point.y}
-          r={0.9}
+          r={1.1}
           fill="#72DCE7"
-          fillOpacity={0.52}
+          fillOpacity={0.9}
         />
       ))}
       {markers.map((marker) => {
-        const radius = marker.size ?? 2.2
+        const radius = marker.size ?? 2.8
 
         return (
           <g key={marker.name}>
@@ -78,7 +78,7 @@ export default function DottedMap() {
               x={marker.x + 7}
               y={marker.y - 5}
               fill="#FFFFFF"
-              fontSize={9}
+              fontSize={10}
               fontWeight={600}
               paintOrder="stroke"
               stroke="#0B0F19"
