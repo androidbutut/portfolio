@@ -105,12 +105,12 @@ html, body, #root {
 }
 
 .section-pad {
-  padding: 100px 24px;
+  padding: 100px 24px !important;
 }
 
 @media (min-width: 768px) {
   .section-pad {
-    padding: 140px 48px;
+    padding: 140px 48px !important;
   }
 }
 
