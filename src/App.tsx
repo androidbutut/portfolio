@@ -9,6 +9,7 @@ import Vehicles from './components/Vehicles'
 import Contact from './components/Contact'
 import WhatsAppFloat from './components/WhatsAppFloat'
 import SoundToggle from './components/SoundToggle'
+import AssetLoader from './components/AssetLoader'
 import { useSound } from './hooks/useSound'
 
 const SECTION_IDS = ['hero', 'about', 'experience', 'skills', 'vehicles', 'contact']
@@ -77,6 +78,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen">
       <MainCanvas activeWaypoint={waypoint} />
+      <AssetLoader />
       <div className="hud-layer relative">
         <Navbar />
         <Hero />
