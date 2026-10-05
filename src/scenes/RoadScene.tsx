@@ -87,10 +87,6 @@ export function HeroCar({ position = [0, 0.4, 2] as [number, number, number] }) 
   return (
     <group ref={carRef} position={position}>
       <VehicleModel src="/models/innova-zenix/scene.gltf" targetLength={4.2} />
-      <mesh position={[0, 0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[2.6, 5.4]} />
-        <meshBasicMaterial color="#00F0FF" transparent opacity={0.35} />
-      </mesh>
     </group>
   )
 }

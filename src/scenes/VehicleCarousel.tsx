@@ -125,14 +125,6 @@ function CarModel({
       ))}
         </>
       )}
-      <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[bodyW + 0.4, bodyL + 0.5]} />
-        <meshBasicMaterial
-          color={selected ? color : '#00F0FF'}
-          transparent
-          opacity={selected ? 0.45 : 0.15}
-        />
-      </mesh>
     </group>
   )
 }
