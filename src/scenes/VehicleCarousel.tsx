@@ -8,7 +8,8 @@ import MagicCard from '../components/MagicCard'
 
 const vehicleModels: Record<string, { src: string; targetLength: number }> = {
   city: { src: '/models/innova-zenix/scene.gltf', targetLength: 3.8 },
-  executive: { src: '/models/mercedes-e250/scene.gltf', targetLength: 3.8 },
+  executive: { src: '/models/vellfire/scene.gltf', targetLength: 4.2 },
+  commercial: { src: '/models/fuso-canter/canter.glb', targetLength: 5.8 },
   heavy: { src: '/models/ecoline-bus/scene.gltf', targetLength: 5.2 },
 }
 

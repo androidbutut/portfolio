@@ -1,0 +1,11 @@
+Model Information:
+* title:	Mitsubishi Fuso Canter Truck
+* source:	https://sketchfab.com/3d-models/mitsubishi-fuso-canter-truck-1570bf227af04c13ba0423dfccef5ae7
+* author:	Abdelrahman Elbaqsawi 🇵🇸🇪🇬 (https://sketchfab.com/abdelrahmanbesso82)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Mitsubishi Fuso Canter Truck" (https://sketchfab.com/3d-models/mitsubishi-fuso-canter-truck-1570bf227af04c13ba0423dfccef5ae7) by Abdelrahman Elbaqsawi 🇵🇸🇪🇬 (https://sketchfab.com/abdelrahmanbesso82) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

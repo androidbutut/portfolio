@@ -86,7 +86,7 @@ export function HeroCar({ position = [0, 0.4, 2] as [number, number, number] }) 
 
   return (
     <group ref={carRef} position={position}>
-      <VehicleModel src="/models/innova-zenix/scene.gltf" targetLength={4.2} />
+      <VehicleModel src="/models/vellfire/scene.gltf" targetLength={4.2} />
     </group>
   )
 }
